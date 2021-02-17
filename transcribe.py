@@ -1,3 +1,4 @@
+#code for transcribing input DNA sequence
 seq = list("ACGT")
 
 for i in range(len(seq)): 
