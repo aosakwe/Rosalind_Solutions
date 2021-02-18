@@ -1,4 +1,4 @@
-
+#Solution to GC Content Problem
 seq = list(input("Enter a DNA sequence to complement: "))
 
 complement = []
