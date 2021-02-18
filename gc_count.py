@@ -1,3 +1,4 @@
+#Solution to GC Content Problem
 f = open('data.txt', 'r')
 gc_dict = {}
 gc_counter = {}
