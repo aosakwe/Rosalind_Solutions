@@ -4,9 +4,9 @@ codon = {"AUU":'I' ,"AUC":'I', "AUA":'I', "CUU":'L' , "CUC" : 'L', "CUA": 'L', "
 protein = []
 seq = input("Enter RNA Sequence: ")
 i = 0
-while seq[i:i+3] != "AUG":
+while seq[i:i+3] != "AUG": 
 	i += 1
-start = i
+start = i #store index of start and end of ORF to print it alongside the translated sequence. May change to just show the indices.
 protein.append(codon[seq[i:i+3]])
 i += 3
 while i+3 <= len(seq):
