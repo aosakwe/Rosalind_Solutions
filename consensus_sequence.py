@@ -1,5 +1,9 @@
 #Solution to Consensus and profile problem
 # Could be used with Chip-seq data to determine a DNA binding site of a protein
+
+## Below can be used to make script usable in a shell pipeline
+#import sys
+#f = open(sys.argv[1], 'r')
 f = open('seq.txt', 'r')
 strands = []
 strand_length = 0
