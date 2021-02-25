@@ -38,12 +38,8 @@ for bases in profile:
 	profile_matrix[3].append(bases[3])
 
 print("".join(consensus))
-print("A:", end = " ")
-print(*profile_matrix[0])
-print("C:", end = " ")
-print(*profile_matrix[1])
-print("G:", end = " ")
-print(*profile_matrix[2])
-print("T:", end = " ")
-print(*profile_matrix[3])
+print("A:", *profile_matrix[0])
+print("C:", *profile_matrix[1])
+print("G:", *profile_matrix[2])
+print("T:", *profile_matrix[3])
 
