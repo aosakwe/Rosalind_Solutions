@@ -2,20 +2,27 @@
 # Could be used with Chip-seq data to determine a DNA binding site of a protein
 
 ## Below can be used to make script usable in a shell pipeline
-#import sys
-#f = open(sys.argv[1], 'r')
-f = open('seq.txt', 'r')
+import sys
+f = open(sys.argv[1], 'r')
+#f = open('seq.txt', 'r')
 strands = []
 strand_length = 0
 profile = []
+index = 0
 for line in f:
-	if line[0] != '>':
-		if len(strands) == 0:
-			strand_length = len(line.strip())
-		if strand_length != len(line.strip()):
-			raise ValueError("Provided sequences must all be of equal length")
-	
-		strands.append(line.strip())
+	if line[0] == '>' and len(strands) == 1:
+		strand_length = len(strands[0]) #first strand is complete so we can use it as the ref length
+	if line[0] == '>' and len(strands) == 0:
+		strands.append("")
+	elif line[0] == '>' and len(strands) == index + 1:
+		strands.append("") #opens up spot in list to store new sequences
+		if strand_length != len(strands[index]):
+                          raise ValueError("Provided sequences must all be of equal length")
+		index += 1 #shift index to new position to store values
+
+
+	elif line[0] != '>':
+		strands[index] += line.strip()
 f.close()
 for i in range(strand_length):
 	base_distr = [0,0,0,0]
