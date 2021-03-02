@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/bin/env python3
 #Solution to Random Strings problem on Rosalind
 
 import sys

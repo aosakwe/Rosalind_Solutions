@@ -1,5 +1,6 @@
 #Solution to GC Content Problem
-f = open('data.txt', 'r')
+import sys
+f = open(sys.argv[1], 'r')
 gc_dict = {}
 gc_counter = {}
 for line in f:

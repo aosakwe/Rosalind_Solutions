@@ -9,7 +9,7 @@ for i in range(n-1):
 	temp = cur + k*prev
 	prev = cur
 	cur = temp
-	print(cur)
-
+	#print(cur)
+print(cur)
 	
 

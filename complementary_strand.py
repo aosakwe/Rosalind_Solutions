@@ -1,3 +1,4 @@
+#Solution to complementary strand problem
 seq = list(input("Enter a DNA sequence to complement: "))
 
 complement = []
