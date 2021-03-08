@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+#Solution to Nucleotide counting problem
 seq = input("Enter a DNA sequence here: ") 
 
 count = [0,0,0,0] #A C G T
