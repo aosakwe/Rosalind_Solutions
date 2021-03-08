@@ -1,8 +1,12 @@
+#!/usr/bin/python3
 #Solution to Consensus and profile problem
 # Could be used with Chip-seq data to determine a DNA binding site of a protein
 
 ## Below can be used to make script usable in a shell pipeline
 import sys
+if len(sys.argv) != 2:
+	print("Missing input file \n Usage: ./consensus_sequence.py file")
+	exit(1)		
 f = open(sys.argv[1], 'r')
 #f = open('seq.txt', 'r')
 strands = []
