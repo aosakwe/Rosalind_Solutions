@@ -1,5 +1,9 @@
+#!/usr/bin/python3
 #Solution to GC Content Problem
 import sys
+if len(sys.argv) != 2:
+	print("Error: program requires one fasta input file \n Usage: ./gc_count.py file")
+	exit(1)
 f = open(sys.argv[1], 'r')
 gc_dict = {}
 gc_counter = {}
