@@ -7,7 +7,7 @@
 ############### Reference Dictionaries or Variables ##############
 codon = {"AUU":'I' ,"AUC":'I', "AUA":'I', "CUU":'L' , "CUC" : 'L', "CUA": 'L', "CUG": 'L', "UUA": 'L', "UUG": 'L',"GUU":'V', "GUC":'V', "GUA":'V', "GUG":'V',"UUU":'F',"UUC":'F',"AUG":'M',"UGU":'C',"UGC":'C',"GCU":'A',"GCC":'A', "GCA":'A', "GCG":'A',"GGU":'G',"GGC" :'G',"GGA" :'G',"GGG" :'G',"CCU":'P',"CCC":'P',"CCA":'P',"CCG":'P',"ACU":'T',"ACC":'T',"ACA":'T',"ACG":'T',"UCU":'S',"UCC":'S',"UCA":'S',"UCG":'S',"AGU":'S',"AGC":'S',"UAU":'Y',"UAC":'Y',"UGG":'W',"CAA":'Q',"CAG":'Q',"AAU":'N',"AAC":'N',"CAU":'H',"CAC":'H',"GAA":'E',"GAG":'E',"GAU":'D',"GAC":'D',"AAA":'K',"AAG":'K',"CGU":'R',"CGC":'R',"CGA":'R',"CGG":'R',"AGA":'R',"AGG":'R',"UAA":"STOP","UAG":"STOP","UGA":"STOP"}
 amino_acid = {}
-protein_mass = {}
+protein_mass = {'A': 71.03711, 'C': 103.00919, 'D': 115.02694, 'E': 129.04259, 'F': 147.06841, 'G': 57.02146, 'H': 137.05891, 'I': 113.08406, 'K': 128.09496, 'L': 113.08406, 'M': 131.04049, 'N': 114.04293, 'P': 97.05276, 'Q': 128.05858, 'R': 156.10111, 'S': 87.03203, 'T': 101.04768, 'V': 99.06841, 'W': 186.07931, 'Y': 163.06333}
 protein_polarity = {}    
 
 ############# Functions #####################
@@ -79,11 +79,12 @@ def translate(seq, DNA = False):
             if seq[i:i+3] not in codon:
                     raise ValueError("Codon:" + seq[i:i+3] + " does not exist")
             if codon[seq[i:i+3]] == "STOP":
-                    break
+              return "".join(protein)
             else:
+              
                     protein.append(codon[seq[i:i+3]])
                     i += 3
-    return "".join(protein)
+    return ''
 
 
 def point_mutations(seq1,seq2):
@@ -103,9 +104,9 @@ def orf_finder(seq, DNA = True):
 	orfs = []
 	for i in range(len(seq)):
 		if i+3 < len(seq):	
-			if DNA and seq[i+3] == "ATG":
+			if DNA and seq[i:i+3] == "ATG":
 				orfs.append(i)
-			elif seq[i+3] == "AUG" and not DNA:
+			elif seq[i:i+3] == "AUG" and not DNA:
 				orfs.append(i)
 		else:
 			return orfs
